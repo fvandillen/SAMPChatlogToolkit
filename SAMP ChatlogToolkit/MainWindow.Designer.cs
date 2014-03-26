@@ -28,160 +28,217 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.button5 = new System.Windows.Forms.Button();
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
+            this.InputChatlog = new System.Windows.Forms.TextBox();
+            this.ButtonBrowseFile = new System.Windows.Forms.Button();
+            this.LabelChatlog = new System.Windows.Forms.Label();
+            this.LabelOutput = new System.Windows.Forms.Label();
+            this.ButtonBrowseOutput = new System.Windows.Forms.Button();
+            this.InputOutput = new System.Windows.Forms.TextBox();
+            this.LabelIntro = new System.Windows.Forms.Label();
+            this.ButtonResetPaths = new System.Windows.Forms.Button();
+            this.LabelBugReport = new System.Windows.Forms.Label();
+            this.OutputBox = new System.Windows.Forms.TextBox();
+            this.ButtonCheckChatlog = new System.Windows.Forms.Button();
+            this.LabelOKChatlog = new System.Windows.Forms.Label();
+            this.LabelOKOutput = new System.Windows.Forms.Label();
+            this.ButtonCheckOutput = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.ButtonMinimizeToTray = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // InputChatlog
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 35);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(307, 20);
-            this.textBox1.TabIndex = 0;
+            this.InputChatlog.Location = new System.Drawing.Point(16, 35);
+            this.InputChatlog.Name = "InputChatlog";
+            this.InputChatlog.Size = new System.Drawing.Size(420, 20);
+            this.InputChatlog.TabIndex = 0;
             // 
-            // button1
+            // ButtonBrowseFile
             // 
-            this.button1.Location = new System.Drawing.Point(357, 33);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Browse";
-            this.button1.UseVisualStyleBackColor = true;
+            this.ButtonBrowseFile.Location = new System.Drawing.Point(485, 33);
+            this.ButtonBrowseFile.Name = "ButtonBrowseFile";
+            this.ButtonBrowseFile.Size = new System.Drawing.Size(75, 23);
+            this.ButtonBrowseFile.TabIndex = 1;
+            this.ButtonBrowseFile.Text = "Set";
+            this.ButtonBrowseFile.UseVisualStyleBackColor = true;
+            this.ButtonBrowseFile.Click += new System.EventHandler(this.ButtonBrowseFile_Click);
             // 
-            // label1
+            // LabelChatlog
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(136, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "SA:MP Chatlog.txt location:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.LabelChatlog.AutoSize = true;
+            this.LabelChatlog.Location = new System.Drawing.Point(13, 19);
+            this.LabelChatlog.Name = "LabelChatlog";
+            this.LabelChatlog.Size = new System.Drawing.Size(136, 13);
+            this.LabelChatlog.TabIndex = 2;
+            this.LabelChatlog.Text = "SA:MP Chatlog.txt location:";
             // 
-            // label2
+            // LabelOutput
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 63);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Output folder:";
+            this.LabelOutput.AutoSize = true;
+            this.LabelOutput.Location = new System.Drawing.Point(13, 63);
+            this.LabelOutput.Name = "LabelOutput";
+            this.LabelOutput.Size = new System.Drawing.Size(71, 13);
+            this.LabelOutput.TabIndex = 5;
+            this.LabelOutput.Text = "Output folder:";
             // 
-            // button2
+            // ButtonBrowseOutput
             // 
-            this.button2.Location = new System.Drawing.Point(357, 77);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Browse";
-            this.button2.UseVisualStyleBackColor = true;
+            this.ButtonBrowseOutput.Location = new System.Drawing.Point(485, 77);
+            this.ButtonBrowseOutput.Name = "ButtonBrowseOutput";
+            this.ButtonBrowseOutput.Size = new System.Drawing.Size(75, 23);
+            this.ButtonBrowseOutput.TabIndex = 4;
+            this.ButtonBrowseOutput.Text = "Set";
+            this.ButtonBrowseOutput.UseVisualStyleBackColor = true;
+            this.ButtonBrowseOutput.Click += new System.EventHandler(this.ButtonBrowseOutput_Click);
             // 
-            // textBox2
+            // InputOutput
             // 
-            this.textBox2.Location = new System.Drawing.Point(12, 79);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(307, 20);
-            this.textBox2.TabIndex = 3;
+            this.InputOutput.Location = new System.Drawing.Point(16, 79);
+            this.InputOutput.Name = "InputOutput";
+            this.InputOutput.Size = new System.Drawing.Size(420, 20);
+            this.InputOutput.TabIndex = 3;
             // 
-            // label3
+            // LabelIntro
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 118);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(398, 26);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "You may modify the locations above.  You can reset them to auto-located paths by " +
-    "\r\nclicking the reset button.\r\n";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.LabelIntro.AutoSize = true;
+            this.LabelIntro.Location = new System.Drawing.Point(13, 135);
+            this.LabelIntro.Name = "LabelIntro";
+            this.LabelIntro.Size = new System.Drawing.Size(434, 26);
+            this.LabelIntro.TabIndex = 6;
+            this.LabelIntro.Text = "Click the two buttons above to set your paths. You can select your own paths in t" +
+    "he future.\r\nUse the checkbox below to start the automatic backup process.\r\n";
             // 
-            // button3
+            // ButtonResetPaths
             // 
-            this.button3.Location = new System.Drawing.Point(15, 148);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "Reset paths";
-            this.button3.UseVisualStyleBackColor = true;
+            this.ButtonResetPaths.Location = new System.Drawing.Point(485, 118);
+            this.ButtonResetPaths.Name = "ButtonResetPaths";
+            this.ButtonResetPaths.Size = new System.Drawing.Size(75, 23);
+            this.ButtonResetPaths.TabIndex = 7;
+            this.ButtonResetPaths.Text = "Reset paths";
+            this.ButtonResetPaths.UseVisualStyleBackColor = true;
+            this.ButtonResetPaths.Click += new System.EventHandler(this.ButtonResetPaths_Click);
             // 
-            // label4
+            // LabelBugReport
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 174);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(396, 39);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "If you encounter errors, please open a bug report. Be sure to provide the full ou" +
-    "tput\r\nfrom the area below!\r\n\r\n";
+            this.LabelBugReport.AutoSize = true;
+            this.LabelBugReport.ForeColor = System.Drawing.Color.Red;
+            this.LabelBugReport.Location = new System.Drawing.Point(13, 338);
+            this.LabelBugReport.Name = "LabelBugReport";
+            this.LabelBugReport.Size = new System.Drawing.Size(396, 39);
+            this.LabelBugReport.TabIndex = 8;
+            this.LabelBugReport.Text = "If you encounter errors, please open a bug report. Be sure to provide the full ou" +
+    "tput\r\nfrom the area above!\r\n\r\n";
             // 
-            // textBox3
+            // OutputBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(15, 217);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox3.Size = new System.Drawing.Size(417, 96);
-            this.textBox3.TabIndex = 9;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.OutputBox.Location = new System.Drawing.Point(16, 190);
+            this.OutputBox.Multiline = true;
+            this.OutputBox.Name = "OutputBox";
+            this.OutputBox.ReadOnly = true;
+            this.OutputBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.OutputBox.Size = new System.Drawing.Size(541, 140);
+            this.OutputBox.TabIndex = 9;
+            this.OutputBox.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
-            // button4
+            // ButtonCheckChatlog
             // 
-            this.button4.Location = new System.Drawing.Point(279, 319);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(153, 23);
-            this.button4.TabIndex = 10;
-            this.button4.Text = "Funny little debug button!";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.ButtonCheckChatlog.Location = new System.Drawing.Point(16, 105);
+            this.ButtonCheckChatlog.Name = "ButtonCheckChatlog";
+            this.ButtonCheckChatlog.Size = new System.Drawing.Size(149, 23);
+            this.ButtonCheckChatlog.TabIndex = 12;
+            this.ButtonCheckChatlog.Text = "Use default chatlog location";
+            this.ButtonCheckChatlog.UseVisualStyleBackColor = true;
+            this.ButtonCheckChatlog.Click += new System.EventHandler(this.button5_Click);
             // 
-            // textBox4
+            // LabelOKChatlog
             // 
-            this.textBox4.Location = new System.Drawing.Point(15, 321);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(258, 20);
-            this.textBox4.TabIndex = 11;
+            this.LabelOKChatlog.AutoSize = true;
+            this.LabelOKChatlog.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelOKChatlog.ForeColor = System.Drawing.Color.Green;
+            this.LabelOKChatlog.Location = new System.Drawing.Point(452, 38);
+            this.LabelOKChatlog.Name = "LabelOKChatlog";
+            this.LabelOKChatlog.Size = new System.Drawing.Size(0, 13);
+            this.LabelOKChatlog.TabIndex = 13;
             // 
-            // button5
+            // LabelOKOutput
             // 
-            this.button5.Location = new System.Drawing.Point(15, 348);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(130, 23);
-            this.button5.TabIndex = 12;
-            this.button5.Text = "Does chatlog.txt exist?";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.LabelOKOutput.AutoSize = true;
+            this.LabelOKOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelOKOutput.ForeColor = System.Drawing.Color.Green;
+            this.LabelOKOutput.Location = new System.Drawing.Point(452, 82);
+            this.LabelOKOutput.Name = "LabelOKOutput";
+            this.LabelOKOutput.Size = new System.Drawing.Size(0, 13);
+            this.LabelOKOutput.TabIndex = 14;
             // 
-            // Form1
+            // ButtonCheckOutput
+            // 
+            this.ButtonCheckOutput.Location = new System.Drawing.Point(171, 105);
+            this.ButtonCheckOutput.Name = "ButtonCheckOutput";
+            this.ButtonCheckOutput.Size = new System.Drawing.Size(265, 23);
+            this.ButtonCheckOutput.TabIndex = 15;
+            this.ButtonCheckOutput.Text = "Use default chatlog backup folder (chatlog_backup)";
+            this.ButtonCheckOutput.UseVisualStyleBackColor = true;
+            this.ButtonCheckOutput.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(391, 365);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(174, 17);
+            this.checkBox1.TabIndex = 16;
+            this.checkBox1.Text = "Start automatic chatlog backup";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged_1);
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "SA:MP ChatlogToolkit";
+            this.notifyIcon1.Visible = true;
+            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
+            // 
+            // ButtonMinimizeToTray
+            // 
+            this.ButtonMinimizeToTray.Location = new System.Drawing.Point(281, 361);
+            this.ButtonMinimizeToTray.Name = "ButtonMinimizeToTray";
+            this.ButtonMinimizeToTray.Size = new System.Drawing.Size(93, 23);
+            this.ButtonMinimizeToTray.TabIndex = 17;
+            this.ButtonMinimizeToTray.Text = "Minimize to tray";
+            this.ButtonMinimizeToTray.UseVisualStyleBackColor = true;
+            this.ButtonMinimizeToTray.Click += new System.EventHandler(this.ButtonMinimizeToTray_Click);
+            // 
+            // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(444, 411);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
-            this.Name = "Form1";
+            this.ClientSize = new System.Drawing.Size(577, 394);
+            this.Controls.Add(this.ButtonMinimizeToTray);
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.ButtonCheckOutput);
+            this.Controls.Add(this.LabelOKOutput);
+            this.Controls.Add(this.LabelOKChatlog);
+            this.Controls.Add(this.ButtonCheckChatlog);
+            this.Controls.Add(this.OutputBox);
+            this.Controls.Add(this.LabelBugReport);
+            this.Controls.Add(this.ButtonResetPaths);
+            this.Controls.Add(this.LabelIntro);
+            this.Controls.Add(this.LabelOutput);
+            this.Controls.Add(this.ButtonBrowseOutput);
+            this.Controls.Add(this.InputOutput);
+            this.Controls.Add(this.LabelChatlog);
+            this.Controls.Add(this.ButtonBrowseFile);
+            this.Controls.Add(this.InputChatlog);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "MainWindow";
             this.Text = "SA:MP Chatlog Toolkit by DHR.Marcel";
+            this.Load += new System.EventHandler(this.MainWindow_Load);
+            this.Resize += new System.EventHandler(this.MainWindow_Resize);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -189,19 +246,23 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.TextBox InputChatlog;
+        private System.Windows.Forms.Button ButtonBrowseFile;
+        private System.Windows.Forms.Label LabelChatlog;
+        private System.Windows.Forms.Label LabelOutput;
+        private System.Windows.Forms.Button ButtonBrowseOutput;
+        private System.Windows.Forms.TextBox InputOutput;
+        private System.Windows.Forms.Label LabelIntro;
+        private System.Windows.Forms.Button ButtonResetPaths;
+        private System.Windows.Forms.Label LabelBugReport;
+        public System.Windows.Forms.TextBox OutputBox;
+        private System.Windows.Forms.Button ButtonCheckChatlog;
+        private System.Windows.Forms.Label LabelOKChatlog;
+        private System.Windows.Forms.Label LabelOKOutput;
+        private System.Windows.Forms.Button ButtonCheckOutput;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.Button ButtonMinimizeToTray;
     }
 }
 

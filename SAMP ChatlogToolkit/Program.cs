@@ -8,6 +8,9 @@ namespace SAMP_ChatlogToolkit
 {
     static class Program
     {
+        
+        
+        
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -17,6 +20,7 @@ namespace SAMP_ChatlogToolkit
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainWindow());
+           
         }
     }
 }

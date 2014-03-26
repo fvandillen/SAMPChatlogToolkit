@@ -8,29 +8,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Timers;
 
 namespace SAMP_ChatlogToolkit
 {
     public partial class MainWindow : Form
     {
+        int SAMPactive;
+        int GTAactive;
+        int RunMode;
+        string ChatLogPath = "";
+        string ChatLogTarget = "";
+        static System.Timers.Timer aTimer;
+
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        public void form1_Resize(object Sender, EventArgs e)
-        {
-            if (FormWindowState.Minimized == this.WindowState)
-            {
-                //mynotifyicon.Visible = true;
-                //mynotifyicon.ShowBalloonTip(500);
-                this.Hide();
-            }
-
-            else if (FormWindowState.Normal == this.WindowState)
-            {
-                // mynotifyicon.Visible = false;
-            }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -51,18 +44,7 @@ namespace SAMP_ChatlogToolkit
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if(textBox3.TextLength < 1)
-            {
-                // Do not print the newline since it's the first text.
-                textBox3.AppendText(textBox4.Text);
-                textBox4.ResetText();
-            }
-            else
-            {
-                // Print the newline because it's not the first text.
-                textBox3.AppendText(Environment.NewLine + textBox4.Text);
-                textBox4.ResetText();
-            }
+          
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -70,7 +52,146 @@ namespace SAMP_ChatlogToolkit
             string initialPath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents\\GTA San Andreas User Files\\SAMP";
             string fullPath = initialPath + "\\chatlog.txt";
             Console.WriteLine("Looking for: " + fullPath);
+            ChatLogPath = fullPath;
+            Console.WriteLine(File.Exists(fullPath) ? "File exists!" : "File does not exist!"); // test
+            if(File.Exists(fullPath))
+            {
+                InputChatlog.Text = fullPath;
+                InputChatlog.Enabled = false;
+                LabelOKChatlog.Text = "OK";
+                OutputBox.AppendText(Environment.NewLine + "Found chatlog.txt at: " + fullPath);
+                ChatlogToolkit.ChatLogPath = fullPath;
+            }
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MainWindow_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            string fullPath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents\\GTA San Andreas User Files\\SAMP\\chatlog_backup";
+            Console.WriteLine("Looking for: " + fullPath);
+            ChatLogTarget = fullPath;
+            Console.WriteLine(Directory.Exists(fullPath) ? "Folder exists!" : "Folder does not exist!");
+            if (Directory.Exists(fullPath))
+            {
+                InputOutput.Text = fullPath;
+                InputOutput.Enabled = false;
+                LabelOKOutput.Text = "OK";
+                OutputBox.AppendText(Environment.NewLine + "Found output folder at: " + fullPath);
+                ChatlogToolkit.ChatLogTarget = fullPath;
+            }
+            else
+            {
+                // Requested folder does not exist, create it.
+                System.IO.Directory.CreateDirectory(fullPath);
+                OutputBox.AppendText(Environment.NewLine + "Output folder not found, creating: " + fullPath);
+            }
+        }
+
+        private void ButtonBrowseFile_Click(object sender, EventArgs e)
+        {
+                
+            string fullPath = InputChatlog.Text;
+            Console.WriteLine("Looking for: " + fullPath);
+            ChatLogPath = fullPath;
             Console.WriteLine(File.Exists(fullPath) ? "File exists!" : "File does not exist!");
+            if (File.Exists(fullPath))
+            {
+                InputChatlog.Text = fullPath;
+                InputChatlog.Enabled = false;
+                LabelOKChatlog.Text = "OK";
+                OutputBox.AppendText(Environment.NewLine + "Found chatlog.txt at: " + fullPath);
+                ChatlogToolkit.ChatLogPath = fullPath;
+            }
+        }
+
+
+        private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                ChatlogToolkit.LaunchTimer();
+            }
+        }
+
+        private void MainWindow_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                this.Visible = false;
+                this.ShowInTaskbar = false;
+            }
+        }
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.Show();
+            this.WindowState = FormWindowState.Normal;
+        }
+
+        private void ButtonBrowseOutput_Click(object sender, EventArgs e)
+        {
+            string fullPath = InputOutput.Text;
+            Console.WriteLine("Looking for: " + fullPath);
+            ChatLogTarget = fullPath;
+            Console.WriteLine(Directory.Exists(fullPath) ? "Folder exists!" : "Folder does not exist!");
+            if (Directory.Exists(fullPath))
+            {
+                InputOutput.Text = fullPath;
+                InputOutput.Enabled = false;
+                LabelOKOutput.Text = "OK";
+                OutputBox.AppendText(Environment.NewLine + "Found output folder at: " + fullPath);
+                ChatlogToolkit.ChatLogTarget = fullPath;
+            }
+            else
+            {
+                // Requested folder does not exist, create it.
+                System.IO.Directory.CreateDirectory(fullPath);
+                OutputBox.AppendText(Environment.NewLine + "Output folder not found, creating: " + fullPath);
+                //InputOutput.Text = fullPath;
+                InputOutput.Enabled = false;
+                LabelOKOutput.Text = "OK";
+            }
+        }
+
+        private void ButtonMinimizeToTray_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            this.ShowInTaskbar = false;
+        }
+
+        private void ButtonResetPaths_Click(object sender, EventArgs e)
+        {
+            // This will also stop the timer because no paths will be accessible anymore
+            ChatlogToolkit.StopTimer();
+            InputOutput.Enabled = true;
+            InputOutput.Text = "";
+            InputChatlog.Enabled = true;
+            InputChatlog.Text = "";
+
+            LabelOKChatlog.Text = "";
+            LabelOKOutput.Text = "";
+
+            checkBox1.Checked = false;
         }
     }
 }
