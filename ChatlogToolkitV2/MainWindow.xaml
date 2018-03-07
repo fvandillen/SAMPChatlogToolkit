@@ -1,0 +1,79 @@
+﻿<Controls:MetroWindow 
+    x:Class="ChatlogToolkitV2.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:local="clr-namespace:ChatlogToolkitV2"
+    mc:Ignorable="d"
+    Title="SA:MP Chatlog toolkit" 
+    Width="800"
+    Height="600" 
+    MinWidth="800"
+    MinHeight="600"              
+    Name="ChatlogToolkitWindow"
+    Loaded="ChatlogToolkitWindow_Loaded"
+    StateChanged="ChatlogToolkitWindow_StateChanged"
+>
+    <Controls:MetroWindow.Flyouts>
+        <Controls:FlyoutsControl>
+            <Controls:Flyout Header="Settings" Name="SettingsFlyout" Position="Right" Width="400">
+                <!-- Your custom content here -->
+                <StackPanel Width="275">
+                    <Button>Change chatlog location</Button>
+                    <Button>Change backup location</Button>
+                    <Button>Check for updates</Button>
+                </StackPanel>
+            </Controls:Flyout>
+
+
+        </Controls:FlyoutsControl>
+    </Controls:MetroWindow.Flyouts>
+
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button Content="Settings" Name="Settingsbutton" Click="Settingsbutton_Click"/>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
+
+    <Grid>
+        <StackPanel Name="FirstTimeSetupPanel" Margin="50, 50, 50, 50" Visibility="Collapsed">
+            <Label FontSize="20">First time setup</Label>
+            <WrapPanel>
+                <Label Width="200">SA:MP chatlog location:</Label>
+                <TextBox Width="400"></TextBox>
+                <Button>Browse..</Button>
+            </WrapPanel>
+            <WrapPanel>
+                <Label Width="200">Chatlog backup location:</Label>
+                <TextBox Width="400"></TextBox>
+                <Button>Browse..</Button>
+            </WrapPanel>
+            <CheckBox>Run chatlog toolkit on Windows startup</CheckBox>
+            <CheckBox>Start chatlog backup on application launch</CheckBox>
+            <Button>Confirm settings</Button>
+        </StackPanel>
+
+        <StackPanel Name="StatusPanel" Margin="50, 50, 50, 50">
+            <Label FontSize="20">Status</Label>
+            <Button Height="100"  Margin="0, 0, 0, 20" Style="{DynamicResource SquareButtonStyle}">
+                <Button.Content>
+                    <StackPanel>
+                        <TextBlock Text="Ready to start" FontSize="20" Foreground="DarkOrange"/>
+                        <TextBlock Text="Click to enable backup" FontSize="12" Foreground="DarkSlateGray" />
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <Label FontSize="20">Last backup</Label>
+            <Button Height="100" Margin="0, 0, 0, 20" Style="{DynamicResource SquareButtonStyle}">
+                <Button.Content>
+                    <StackPanel>
+                        <TextBlock Text="1 hour ago" FontSize="20" Foreground="DeepSkyBlue"/>
+                        <TextBlock Text="Click to open backup folder" FontSize="12" Foreground="DarkSlateGray" />
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Controls:MetroWindow>
