@@ -8,6 +8,7 @@
     xmlns:local="clr-namespace:ChatlogToolkitV2"
     mc:Ignorable="d"
     Title="SA:MP Chatlog toolkit" 
+    WindowStartupLocation="CenterScreen"
     Width="800"
     Height="600" 
     MinWidth="800"
@@ -21,9 +22,11 @@
             <Controls:Flyout Header="Settings" Name="SettingsFlyout" Position="Right" Width="400">
                 <!-- Your custom content here -->
                 <StackPanel Width="275">
-                    <Button>Change chatlog location</Button>
-                    <Button>Change backup location</Button>
-                    <Button>Check for updates</Button>
+                    <Button Name="SettingsChangeChatlogLocation" Click="SettingsChangeChatlogLocation_Click">Change chatlog location</Button>
+                    <Button Name="SettingsChangeBackupLocation" Click="SettingsChangeBackupLocation_Click">Change backup location</Button>
+                    <Button Visibility="Hidden">Check for updates</Button>
+                    <Controls:ToggleSwitch Name="SettingsToggleOnStartup" OnLabel="Yes" OffLabel="No" Header="Run program at Windows startup" IsCheckedChanged="SettingsToggleOnStartup_IsCheckedChanged"/>
+                    <Controls:ToggleSwitch Name="SettingsToggleBackupOnStart" OnLabel="Yes" OffLabel="No" Header="Start backup process at startup" IsCheckedChanged="SettingsToggleBackupOnStart_IsCheckedChanged"></Controls:ToggleSwitch>
                 </StackPanel>
             </Controls:Flyout>
 
@@ -42,34 +45,34 @@
             <Label FontSize="20">First time setup</Label>
             <WrapPanel>
                 <Label Width="200">SA:MP chatlog location:</Label>
-                <TextBox Width="400"></TextBox>
-                <Button>Browse..</Button>
+                <TextBox Name="FirstSetupChatlogLocationTextBox" Width="400"></TextBox>
+                <Button Name="FirstSetupChatlogLocationButton" Click="FirstSetupChatlogLocationButton_Click">Browse..</Button>
             </WrapPanel>
             <WrapPanel>
                 <Label Width="200">Chatlog backup location:</Label>
-                <TextBox Width="400"></TextBox>
-                <Button>Browse..</Button>
+                <TextBox Name="FirstSetupBackupLocationTextBox" Width="400"></TextBox>
+                <Button Name="FirstSetupBackupLocationButton" Click="FirstSetupBackupLocationButton_Click">Browse..</Button>
             </WrapPanel>
-            <CheckBox>Run chatlog toolkit on Windows startup</CheckBox>
-            <CheckBox>Start chatlog backup on application launch</CheckBox>
-            <Button>Confirm settings</Button>
+            <CheckBox Name="FirstSetupRunAtStartup" Visibility="Hidden">Run chatlog toolkit on Windows startup</CheckBox>
+            <CheckBox Name="FirstSetupBackupOnStart" Visibility="Hidden">Start chatlog backup on application launch</CheckBox>
+            <Button Name="FirstSetupConfirm" Click="FirstSetupConfirm_Click">Confirm settings</Button>
         </StackPanel>
 
-        <StackPanel Name="StatusPanel" Margin="50, 50, 50, 50">
+        <StackPanel Name="StatusPanel" Margin="50, 50, 50, 50" Visibility="Collapsed">
             <Label FontSize="20">Status</Label>
-            <Button Height="100"  Margin="0, 0, 0, 20" Style="{DynamicResource SquareButtonStyle}">
+            <Button Height="100"  Margin="0, 0, 0, 20" Style="{DynamicResource SquareButtonStyle}" Name="ToggleBackupButton" Click="ToggleBackupButton_Click">
                 <Button.Content>
                     <StackPanel>
-                        <TextBlock Text="Ready to start" FontSize="20" Foreground="DarkOrange"/>
-                        <TextBlock Text="Click to enable backup" FontSize="12" Foreground="DarkSlateGray" />
+                        <TextBlock Name="BackupStatusText" Text="Ready to start" FontSize="20" Foreground="DarkOrange"/>
+                        <TextBlock Name="BackupStatusSubText" Text="Click to enable backup" FontSize="12" Foreground="DarkSlateGray" />
                     </StackPanel>
                 </Button.Content>
             </Button>
             <Label FontSize="20">Last backup</Label>
-            <Button Height="100" Margin="0, 0, 0, 20" Style="{DynamicResource SquareButtonStyle}">
+            <Button Height="100" Margin="0, 0, 0, 20" Style="{DynamicResource SquareButtonStyle}" Name="ShowBackupDirectoryButton" Click="ShowBackupDirectoryButton_Click">
                 <Button.Content>
                     <StackPanel>
-                        <TextBlock Text="1 hour ago" FontSize="20" Foreground="DeepSkyBlue"/>
+                        <TextBlock Name="LastBackupTimeTextBox" Text="" FontSize="20" Foreground="DeepSkyBlue"/>
                         <TextBlock Text="Click to open backup folder" FontSize="12" Foreground="DarkSlateGray" />
                     </StackPanel>
                 </Button.Content>

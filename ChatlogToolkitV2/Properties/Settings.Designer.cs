@@ -38,12 +38,12 @@ namespace ChatlogToolkitV2.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string ChatlogDirectory {
+        public string ChatlogPath {
             get {
-                return ((string)(this["ChatlogDirectory"]));
+                return ((string)(this["ChatlogPath"]));
             }
             set {
-                this["ChatlogDirectory"] = value;
+                this["ChatlogPath"] = value;
             }
         }
         
@@ -80,6 +80,29 @@ namespace ChatlogToolkitV2.Properties {
             }
             set {
                 this["BackupAtStartup"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.DateTime LastBackup {
+            get {
+                return ((global::System.DateTime)(this["LastBackup"]));
+            }
+            set {
+                this["LastBackup"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool RunAtStartup {
+            get {
+                return ((bool)(this["RunAtStartup"]));
+            }
+            set {
+                this["RunAtStartup"] = value;
             }
         }
     }

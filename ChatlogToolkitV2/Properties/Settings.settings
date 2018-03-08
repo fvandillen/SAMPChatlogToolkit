@@ -5,7 +5,7 @@
     <Setting Name="InitialSetupComplete" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="ChatlogDirectory" Type="System.String" Scope="User">
+    <Setting Name="ChatlogPath" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="BackupDirectory" Type="System.String" Scope="User">
@@ -15,6 +15,12 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="BackupAtStartup" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="LastBackup" Type="System.DateTime" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="RunAtStartup" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
